@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Sankarshan Kulkarni | Quantitative Researcher | Volatility & Systematic Strategies</title>
+  <title>Sankarshan Kulkarni | Quantitative Researcher | Options, Volatility, Systematic Strategies</title>
+  <meta name="description" content="Quantitative researcher specializing in options pricing, volatility surface modelling (SVI), statistical arbitrage (Kalman filter), high-performance backtesting (Numba), and risk analytics for multi-billion dollar portfolios.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -360,18 +361,19 @@
     }
     .grid-2cols {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 1.8rem;
     }
     .edu-card {
       background: white;
       border-radius: 1.5rem;
       padding: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      height: 100%;
       transition: all 0.2s;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
     .edu-card:hover {
+      border-color: #cbd5e1;
       box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
       transform: translateY(-2px);
     }
@@ -467,7 +469,6 @@
         <i class="fas fa-chart-line" style="margin-right: 6px;"></i> Options pricing · SVI surfaces · High‑performance backtesting · Risk analytics for $10B+ AUM
       </div>
       <div class="btn-group">
-        <button id="printCvBtn" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Print CV</button>
         <a href="https://github.com/Sankarshan03" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
@@ -491,7 +492,7 @@
     <button class="tab-btn" data-tab="education">Education & CV</button>
   </div>
 
-  <!-- Tab: About (Professional Summary) -->
+  <!-- Tab: About -->
   <div id="about" class="tab-content active-tab">
     <div class="section">
       <h2>Professional Summary</h2>
@@ -510,7 +511,7 @@
     </div>
   </div>
 
-  <!-- Tab: Experience (updated with locations) -->
+  <!-- Tab: Experience -->
   <div id="experience" class="tab-content">
     <div class="section">
       <h2>Work Experience</h2>
@@ -541,59 +542,59 @@
     </div>
   </div>
 
-  <!-- Tab: Projects (ATS-friendly, catchy) -->
+  <!-- Tab: Projects – updated with correct metrics and repo URLs -->
   <div id="projects" class="tab-content">
     <div class="section">
-      <h2>Key Quantitative Projects</h2>
+      <h2>Key Quantitative Research Projects</h2>
       <div class="grid-2cols">
-        <!-- 1. BankNifty Dispersion Trade Monitor -->
+        <!-- BankNifty Dispersion Trade Monitor with correct GitHub link -->
         <div class="project-card">
           <h3><i class="fas fa-chart-line"></i> BankNifty Dispersion Trade Monitor</h3>
-          <p>Real‑time dispersion calculator: long ATM straddle on BankNifty vs short constituent straddles. Flask + Zerodha WebSocket, multi‑threaded API calls, 75% API call reduction via smart caching.</p>
-          <div class="project-tech"><span class="tech-tag">Flask</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Options Greeks</span><span class="tech-tag">Real‑time</span></div>
+          <p><strong>Real‑time dispersion trading infrastructure:</strong> Long ATM straddle on BankNifty vs short constituent straddles. Built with Flask, Zerodha KiteTicker WebSocket, multi‑threaded API calls. Achieved <strong>75% API call reduction</strong> via smart caching with automatic fallback. Normalised to ₹6 crore reference portfolio.</p>
+          <div class="project-tech"><span class="tech-tag">Flask</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Options Greeks</span><span class="tech-tag">Real‑time PnL</span><span class="tech-tag">Volatility Arbitrage</span></div>
+          <a href="https://github.com/Sankarshan03/Bank-Nifty-Dispersion" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
+        </div>
+        <!-- BankNifty Short Strangle Backtesting with corrected metrics -->
+        <div class="project-card">
+          <h3><i class="fas fa-chart-line"></i> Short Strangle Backtesting Engine</h3>
+          <p><strong>High‑performance 1‑minute intraday backtester</strong> processing <strong>10M+ rows</strong> of options data. Entry at 09:20 (strikes near ₹50), exit at 15:20 or 50% stop loss. Achieved <strong>CAGR 8%</strong>, <strong>max drawdown 0.44%</strong>, runtime optimised to <strong>45 seconds</strong>. Computed Sharpe ratio, skewness (-1.36), kurtosis (0.37).</p>
+          <div class="project-tech"><span class="tech-tag">Backtesting</span><span class="tech-tag">Options Strategies</span><span class="tech-tag">Performance Analytics</span><span class="tech-tag">Risk Metrics</span></div>
           <a href="https://github.com/Sankarshan03" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
         </div>
-        <!-- 2. BankNifty Short Strangle Backtesting -->
+        <!-- SVI Volatility Surface Modelling (SPX) -->
         <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> BankNifty Short Strangle Backtesting</h3>
-          <p>1‑min intraday backtest engine processing 10M+ rows of options data. Entry at 09:20, exit at 15:20 or 50% SL. Sharpe, CAGR, skewness -1.36, runtime 145s.</p>
-          <div class="project-tech"><span class="tech-tag">Backtesting</span><span class="tech-tag">Options Strategies</span><span class="tech-tag">Performance Analytics</span></div>
-          <a href="https://github.com/Sankarshan03" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <h3><i class="fas fa-chart-area"></i> SVI Volatility Surface Modelling</h3>
+          <p><strong>Implied volatility surface calibration for SPXW options:</strong> Extracted OTM options (0/1/2 DTE) from 7.5M‑row dataset; derived forward price (r=4.5%), computed Black‑76 implied volatilities. Fitted 5‑parameter SVI model via least squares (<strong>RMSE 0.00256</strong>); validated no butterfly arbitrage via call price convexity.</p>
+          <div class="project-tech"><span class="tech-tag">SVI</span><span class="tech-tag">Volatility Surface</span><span class="tech-tag">Implied Volatility</span><span class="tech-tag">Black‑76</span><span class="tech-tag">Arbitrage‑free</span></div>
+          <a href="https://github.com/Sankarshan03/SVI-Modelling-1dte" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- 3. SVI Volatility Surface Modelling (SPX) -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-area"></i> SVI Volatility Surface Modelling (SPX)</h3>
-          <p>Extracted OTM SPXW options (0/1/2 DTE) from 7.5M rows; Black‑76 implied vols. Fitted 5‑parameter SVI via least squares (RMSE 0.00256), no butterfly arbitrage.</p>
-          <div class="project-tech"><span class="tech-tag">SVI</span><span class="tech-tag">Volatility Surface</span><span class="tech-tag">Implied Volatility</span><span class="tech-tag">Black‑76</span></div>
-          <a href="https://github.com/Sankarshan03/SVI-Modelling-1dte" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-        <!-- 4. Kalman Filter Pair Trading -->
+        <!-- Kalman Filter Pair Trading -->
         <div class="project-card">
           <h3><i class="fas fa-chart-line"></i> Kalman Filter Pair Trading</h3>
-          <p>Statistical arbitrage via dynamic mean‑reversion on US equities. Rolling hedge ratio, Kalman state‑space. Sharpe 1.20, Calmar 2.0, max DD 20% after costs.</p>
-          <div class="project-tech"><span class="tech-tag">Kalman Filter</span><span class="tech-tag">Pair Trading</span><span class="tech-tag">Time Series</span></div>
-          <a href="https://github.com/Sankarshan03/Kalman-Filter-Pair-trading-strategy" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <p><strong>Statistical arbitrage via dynamic mean‑reversion:</strong> Kalman Filter state‑space modelling for rolling hedge ratio estimation on US equities. Achieved <strong>Sharpe 1.20, Calmar 2.0, max drawdown 20%</strong> after transaction costs and slippage. Robust backtesting framework.</p>
+          <div class="project-tech"><span class="tech-tag">Kalman Filter</span><span class="tech-tag">Pair Trading</span><span class="tech-tag">Statistical Arbitrage</span><span class="tech-tag">Time Series</span></div>
+          <a href="https://github.com/Sankarshan03/Kalman-Filter-Pair-trading-strategy" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- 5. Risk Parity & Minimum Volatility -->
+        <!-- Risk Parity & Minimum Volatility -->
         <div class="project-card">
-          <h3><i class="fas fa-chart-pie"></i> Risk Parity & Min Volatility</h3>
-          <p>Risk parity via marginal risk contribution + min variance with product constraint. Achieved daily variance 10× lower than market‑cap benchmark on six US stocks.</p>
-          <div class="project-tech"><span class="tech-tag">Risk Parity</span><span class="tech-tag">Portfolio Optimization</span><span class="tech-tag">SciPy</span></div>
-          <a href="https://github.com/Sankarshan03/Portfolio-Optimization-of-Stocks-using-Monte-Carlo-Simulation-and-Markowitz-model" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <h3><i class="fas fa-chart-pie"></i> Risk Parity & Minimum Volatility</h3>
+          <p><strong>Advanced portfolio optimization:</strong> Implemented risk parity via marginal risk contribution and minimum variance with product constraint (∏w = e⁻²) on six US stocks. Achieved <strong>daily variance 10× lower than market‑cap weighted benchmark</strong>; risk parity weights evenly distributed (0.12–0.20).</p>
+          <div class="project-tech"><span class="tech-tag">Risk Parity</span><span class="tech-tag">Portfolio Optimization</span><span class="tech-tag">SciPy</span><span class="tech-tag">Covariance Matrix</span></div>
+          <a href="https://github.com/Sankarshan03/Portfolio-Optimization-of-Stocks-using-Monte-Carlo-Simulation-and-Markowitz-model" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- 6. Optimised Intraday EMA-RSI Trading Strategy -->
+        <!-- Optimised Intraday EMA-RSI Trading Strategy -->
         <div class="project-card">
           <h3><i class="fas fa-rocket"></i> Intraday EMA-RSI Trading System</h3>
-          <p>Numba JIT‑accelerated backtesting (5‑10× speedup). Multi‑timeframe EMA(3/10/50) + RSI(14), pending entry logic. Interactive Streamlit dashboard.</p>
-          <div class="project-tech"><span class="tech-tag">Numba</span><span class="tech-tag">Backtesting</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Technical Indicators</span></div>
-          <a href="https://github.com/Sankarshan03/Intraday_Equity" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <p><strong>Numba JIT‑accelerated backtesting engine (5‑10× speedup).</strong> Multi‑timeframe EMA(3/10/50) + RSI(14) with pending entry logic and dynamic stock selection (turnover‑based). Interactive Streamlit dashboard with Sharpe, drawdown, and execution time monitoring.</p>
+          <div class="project-tech"><span class="tech-tag">Numba</span><span class="tech-tag">Backtesting</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Technical Indicators</span><span class="tech-tag">Risk Management</span></div>
+          <a href="https://github.com/Sankarshan03/Intraday_Equity" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- 7. Black-Scholes PDE - Heat Equation -->
+        <!-- Black-Scholes PDE - Heat Equation -->
         <div class="project-card">
           <h3><i class="fas fa-chart-line"></i> Black‑Scholes PDE: Heat Equation FD</h3>
-          <p>Transformed BS PDE to heat equation, solved with explicit finite difference. Validated against analytical formula (R² = 0.995). Quantified convergence and stability.</p>
-          <div class="project-tech"><span class="tech-tag">Derivatives Pricing</span><span class="tech-tag">Finite Difference</span><span class="tech-tag">PDE</span></div>
-          <a href="https://github.com/Sankarshan03/Black-Scholes-equation" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <p><strong>Numerical solution of the Black‑Scholes PDE</strong> via transformation to the heat equation. Explicit finite difference scheme on log‑moneyness domain. Validated against analytical formula (<strong>R² = 0.995</strong>); quantified convergence, stability, and boundary condition effects.</p>
+          <div class="project-tech"><span class="tech-tag">Derivatives Pricing</span><span class="tech-tag">Finite Difference</span><span class="tech-tag">PDE</span><span class="tech-tag">Numerical Analysis</span></div>
+          <a href="https://github.com/Sankarshan03/Black-Scholes-equation" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
       </div>
     </div>
@@ -611,7 +612,7 @@
             <span class="skill-badge">Statistical Arbitrage</span><span class="skill-badge">Time Series Analysis</span><span class="skill-badge">Monte Carlo Simulation</span>
             <span class="skill-badge">Derivatives Pricing</span><span class="skill-badge">Black‑Scholes / Black‑76</span><span class="skill-badge">CAPM / Risk Parity</span>
             <span class="skill-badge">SVI Volatility Modelling</span><span class="skill-badge">Backtesting</span><span class="skill-badge">Implied Volatility</span>
-            <span class="skill-badge">Finite Difference Methods</span>
+            <span class="skill-badge">Finite Difference Methods</span><span class="skill-badge">Options Greeks</span><span class="skill-badge">Real‑time Systems</span>
           </div>
         </div>
         <div style="flex: 1.5;">
@@ -623,7 +624,7 @@
     </div>
   </div>
 
-  <!-- Tab: Education & CV (with download link) -->
+  <!-- Tab: Education & CV (Download only, visible borders) -->
   <div id="education" class="tab-content">
     <div class="section">
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -637,11 +638,9 @@
           <i class="fas fa-address-card"></i>
           <h3 style="margin: 0.5rem 0 0.25rem;">Curriculum Vitae (CV)</h3>
           <p>Complete professional profile, research projects, and technical achievements.</p>
-          <!-- Download CV button: expects a PDF file named "Sankarshan_CV_Quant.pdf" in the same directory -->
           <a href="Sankarshan_CV_Quant.pdf" download class="btn btn-primary cv-download-btn" style="background:#1e4a76; margin-top: 0.5rem;">
             <i class="fas fa-download"></i> Download CV (PDF)
           </a>
-          <button id="printDetailedCv" class="btn btn-outline" style="margin-top: 0.8rem;"><i class="fas fa-print"></i> Print / Save as PDF</button>
           <div style="margin-top: 1.2rem;">
             <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ksankarshan1208@gmail.com</p>
             <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Sankarshan03" target="_blank" style="color:#1e4a76;">github.com/Sankarshan03</a></p>
@@ -685,11 +684,9 @@
   }
   window.addEventListener('hashchange', handleHash);
   handleHash();
-  // Print CV functionality
-  const printBtn = document.getElementById('printDetailedCv');
+  // Print CV button (hero)
   const printHeroBtn = document.getElementById('printCvBtn');
   function printPage() { window.print(); }
-  if (printBtn) printBtn.addEventListener('click', printPage);
   if (printHeroBtn) printHeroBtn.addEventListener('click', printPage);
 </script>
 </body>
