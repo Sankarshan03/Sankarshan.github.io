@@ -449,7 +449,7 @@
     .section {
       padding-bottom: 1rem;
     }
-    .cv-download-btn {
+    .cv-view-btn {
       margin-top: 1.2rem;
       display: inline-flex;
       align-items: center;
@@ -469,6 +469,7 @@
         <i class="fas fa-chart-line" style="margin-right: 6px;"></i> Options pricing · SVI surfaces · High‑performance backtesting · Risk analytics for $10B+ AUM
       </div>
       <div class="btn-group">
+        <button id="printCvBtn" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Print CV</button>
         <a href="https://github.com/Sankarshan03" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
@@ -624,7 +625,7 @@
     </div>
   </div>
 
-  <!-- Tab: Education & CV (Download only, visible borders) -->
+  <!-- Tab: Education & CV – PDF opens in browser (no download forced) -->
   <div id="education" class="tab-content">
     <div class="section">
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -638,8 +639,9 @@
           <i class="fas fa-address-card"></i>
           <h3 style="margin: 0.5rem 0 0.25rem;">Curriculum Vitae (CV)</h3>
           <p>Complete professional profile, research projects, and technical achievements.</p>
-          <a href="Sankarshan_CV_Quant.pdf" download class="btn btn-primary cv-download-btn" style="background:#1e4a76; margin-top: 0.5rem;">
-            <i class="fas fa-download"></i> Download CV (PDF)
+          <!-- PDF opens in new tab (browser default) – no download attribute -->
+          <a href="Sankarshan_CV_Quant.pdf" target="_blank" class="btn btn-primary cv-view-btn" style="background:#1e4a76; margin-top: 0.5rem;">
+            <i class="fas fa-file-pdf"></i> View CV (PDF)
           </a>
           <div style="margin-top: 1.2rem;">
             <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ksankarshan1208@gmail.com</p>
