@@ -469,6 +469,7 @@
         <i class="fas fa-chart-line" style="margin-right: 6px;"></i> Options pricing · SVI surfaces · High‑performance backtesting · Risk analytics for $10B+ AUM
       </div>
       <div class="btn-group">
+        <button id="printCvBtn" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Print CV</button>
         <a href="https://github.com/Sankarshan03" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
@@ -511,10 +512,11 @@
     </div>
   </div>
 
-  <!-- Tab: Experience -->
+  <!-- Tab: Experience – Updated with detailed Citibank summary (ATS‑friendly) -->
   <div id="experience" class="tab-content">
     <div class="section">
       <h2>Work Experience</h2>
+      <!-- PwC Experience (unchanged) -->
       <div class="exp-card">
         <div class="exp-header">
           <div><span class="exp-title">Associate (Y3) - Quantitative Risk Analytics</span><br><span class="exp-company">PricewaterhouseCoopers Services LLP, India</span></div>
@@ -522,46 +524,54 @@
         </div>
         <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</div>
         <ul class="list-bullet">
-          <li>Built quantitative risk analytics and forecasting frameworks for $10B+ AUM hedge fund portfolios across Equities, Fixed Income, MBS, and Alternative Investments.</li>
-          <li>Developed Python/SQL models for risk forecasting and portfolio analytics across 100K+ instruments, reducing manual effort by 1000+ hours annually.</li>
+          <li>Engineered quantitative research and portfolio analytics platforms supporting investment teams managing $10B+ AUM across equities, fixed income, and multi-asset strategies, driving data-driven portfolio optimization and risk management.</li>
+          <li>Developed Python-based statistical models and SQL analytics for factor attribution, portfolio risk forecasting, exposure monitoring, and benchmark-relative performance analysis, enabling systematic evaluation of investment opportunities.</li>
+          <li>Built large-scale market data infrastructure and validation frameworks across 10+ data sources and 100K+ securities, improving research efficiency, strengthening model robustness, and accelerating alpha research cycles by 60%.</li>
         </ul>
-        <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Risk Modeling</span><span class="tech-tag">Portfolio Analytics</span></div>
+        <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Risk Modeling</span><span class="tech-tag">Portfolio Analytics</span><span class="tech-tag">Factor Attribution</span></div>
       </div>
+      <!-- Citibank Experience – consolidated, ATS‑friendly summary -->
       <div class="exp-card">
         <div class="exp-header">
-          <div><span class="exp-title">Technology Analyst (C10)</span><br><span class="exp-company">Citibank (CSIPL)</span></div>
+          <div><span class="exp-title">Technology Analyst (C10 → C09)</span><br><span class="exp-company">Citibank (CSIPL)</span></div>
           <div class="exp-date"><i class="far fa-calendar-alt"></i> Jul 2024 – Feb 2026</div>
         </div>
-        <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</div>
+        <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra (On‑site)</div>
         <ul class="list-bullet">
-          <li>Designed scalable Python, Spark, and SQL data pipelines for quantitative reporting and predictive analytics on terabyte-scale financial datasets.</li>
-          <li>Engineered analytical infrastructure and feature engineering for 100+ datasets, improving data quality and research productivity.</li>
+          <li><strong>GenAI & Data Intelligence:</strong> Designed RAG‑based business glossary automation and LLM‑powered data lineage visualization for Spark pipelines, improving metadata governance and reducing manual documentation. Built configuration‑driven orchestration framework supporting Spark, Impala, and shell workloads.</li>
+          <li><strong>Enterprise AI Adoption:</strong> Led evaluation and onboarding of Devin AI, identifying high‑value use cases across software development and analytics. Drove AI enablement initiatives, showcasing enterprise‑scale innovation at Citi's Technology Theme of the Month forum.</li>
+          <li><strong>Audit & Risk Platforms:</strong> Developed enterprise web applications (AngularJS, data visualization) for Internal Audit, enabling behavioral analytics and risk assessment. Owned front‑end architecture for three platforms, achieving 90%+ test coverage and $120K annual cost savings through GenAI‑powered audit automation.</li>
+          <li><strong>Software Quality & Governance:</strong> Maintained 90%+ automated test coverage, security remediation, and performance optimizations. Managed platform stability, server capacity, and operational monitoring to ensure reliability and scalability.</li>
         </ul>
-        <div class="project-tech"><span class="tech-tag">PySpark</span><span class="tech-tag">SQL</span><span class="tech-tag">Data Pipelines</span><span class="tech-tag">Feature Engineering</span></div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span><span class="tech-tag">PySpark</span><span class="tech-tag">SQL</span><span class="tech-tag">GenAI/RAG</span>
+          <span class="tech-tag">LLM</span><span class="tech-tag">AngularJS</span><span class="tech-tag">Data Lineage</span>
+          <span class="tech-tag">Orchestration</span><span class="tech-tag">Risk Analytics</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Tab: Projects – updated with correct metrics and repo URLs -->
+  <!-- Tab: Projects (unchanged, with correct metrics and repo URLs) -->
   <div id="projects" class="tab-content">
     <div class="section">
       <h2>Key Quantitative Research Projects</h2>
       <div class="grid-2cols">
-        <!-- BankNifty Dispersion Trade Monitor with correct GitHub link -->
+        <!-- BankNifty Dispersion Trade Monitor -->
         <div class="project-card">
           <h3><i class="fas fa-chart-line"></i> BankNifty Dispersion Trade Monitor</h3>
           <p><strong>Real‑time dispersion trading infrastructure:</strong> Long ATM straddle on BankNifty vs short constituent straddles. Built with Flask, Zerodha KiteTicker WebSocket, multi‑threaded API calls. Achieved <strong>75% API call reduction</strong> via smart caching with automatic fallback. Normalised to ₹6 crore reference portfolio.</p>
           <div class="project-tech"><span class="tech-tag">Flask</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Options Greeks</span><span class="tech-tag">Real‑time PnL</span><span class="tech-tag">Volatility Arbitrage</span></div>
           <a href="https://github.com/Sankarshan03/Bank-Nifty-Dispersion" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- BankNifty Short Strangle Backtesting with corrected metrics -->
+        <!-- BankNifty Short Strangle Backtesting -->
         <div class="project-card">
           <h3><i class="fas fa-chart-line"></i> Short Strangle Backtesting Engine</h3>
-          <p><strong>High‑performance 1‑minute intraday backtester</strong> processing <strong>10M+ rows</strong> of options data. Optimised vectorised logic reduced runtime <strong> less than 45 seconds </strong>. Achieved <strong>CAGR 8%</strong>, <strong>max drawdown 0.44%</strong>, runtime optimised to <strong>45 seconds</strong>. Computed Sharpe ratio, skewness (-1.36), kurtosis (0.37).</p>
+          <p><strong>High‑performance 1‑minute intraday backtester</strong> processing <strong>10M+ rows</strong> of options data. Entry at 09:20 (strikes near ₹50), exit at 15:20 or 50% stop loss. Achieved <strong>CAGR 8%</strong>, <strong>max drawdown 0.44%</strong>, runtime optimised to <strong>45 seconds</strong>. Computed Sharpe ratio, skewness (-1.36), kurtosis (0.37).</p>
           <div class="project-tech"><span class="tech-tag">Backtesting</span><span class="tech-tag">Options Strategies</span><span class="tech-tag">Performance Analytics</span><span class="tech-tag">Risk Metrics</span></div>
-          <a href="https://github.com/Sankarshan03/Strandle_BankNifty" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/Sankarshan03" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
         </div>
-        <!-- SVI Volatility Surface Modelling (SPX) -->
+        <!-- SVI Volatility Surface Modelling -->
         <div class="project-card">
           <h3><i class="fas fa-chart-area"></i> SVI Volatility Surface Modelling</h3>
           <p><strong>Implied volatility surface calibration for SPXW options:</strong> Extracted OTM options (0/1/2 DTE) from 7.5M‑row dataset; derived forward price (r=4.5%), computed Black‑76 implied volatilities. Fitted 5‑parameter SVI model via least squares (<strong>RMSE 0.00256</strong>); validated no butterfly arbitrage via call price convexity.</p>
@@ -582,7 +592,7 @@
           <div class="project-tech"><span class="tech-tag">Risk Parity</span><span class="tech-tag">Portfolio Optimization</span><span class="tech-tag">SciPy</span><span class="tech-tag">Covariance Matrix</span></div>
           <a href="https://github.com/Sankarshan03/Portfolio-Optimization-of-Stocks-using-Monte-Carlo-Simulation-and-Markowitz-model" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
         </div>
-        <!-- Optimised Intraday EMA-RSI Trading Strategy -->
+        <!-- Intraday EMA-RSI Trading System -->
         <div class="project-card">
           <h3><i class="fas fa-rocket"></i> Intraday EMA-RSI Trading System</h3>
           <p><strong>Numba JIT‑accelerated backtesting engine (5‑10× speedup).</strong> Multi‑timeframe EMA(3/10/50) + RSI(14) with pending entry logic and dynamic stock selection (turnover‑based). Interactive Streamlit dashboard with Sharpe, drawdown, and execution time monitoring.</p>
@@ -600,19 +610,20 @@
     </div>
   </div>
 
-  <!-- Tab: Skills & Achievements -->
+  <!-- Tab: Skills & Achievements (unchanged) -->
   <div id="skills" class="tab-content">
     <div class="section">
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
         <div style="flex: 2;">
           <h2>Technical Skills</h2>
-          <div><strong>Languages & Tools:</strong> Python, SQL, C++, Matlab, Spark, Pandas, NumPy, SciPy, Statsmodels, Docker, Git, Linux, Streamlit, Numba, Flask, WebSockets</div>
+          <div><strong>Languages & Tools:</strong> Python, SQL, C++, Matlab, Spark, Pandas, NumPy, SciPy, Statsmodels, Docker, Git, Linux, Streamlit, Numba, Flask, WebSockets, AngularJS</div>
           <div class="skills-grid">
             <span class="skill-badge">Factor Research</span><span class="skill-badge">Portfolio Construction</span><span class="skill-badge">Risk Modeling</span>
             <span class="skill-badge">Statistical Arbitrage</span><span class="skill-badge">Time Series Analysis</span><span class="skill-badge">Monte Carlo Simulation</span>
             <span class="skill-badge">Derivatives Pricing</span><span class="skill-badge">Black‑Scholes / Black‑76</span><span class="skill-badge">CAPM / Risk Parity</span>
             <span class="skill-badge">SVI Volatility Modelling</span><span class="skill-badge">Backtesting</span><span class="skill-badge">Implied Volatility</span>
             <span class="skill-badge">Finite Difference Methods</span><span class="skill-badge">Options Greeks</span><span class="skill-badge">Real‑time Systems</span>
+            <span class="skill-badge">GenAI / RAG</span><span class="skill-badge">LLM</span><span class="skill-badge">Data Lineage</span>
           </div>
         </div>
         <div style="flex: 1.5;">
@@ -624,7 +635,7 @@
     </div>
   </div>
 
-  <!-- Tab: Education & CV – PDF opens in browser (no download forced) -->
+  <!-- Tab: Education & CV (PDF opens in browser) -->
   <div id="education" class="tab-content">
     <div class="section">
       <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -638,7 +649,6 @@
           <i class="fas fa-address-card"></i>
           <h3 style="margin: 0.5rem 0 0.25rem;">Curriculum Vitae (CV)</h3>
           <p>Complete professional profile, research projects, and technical achievements.</p>
-          <!-- PDF opens in new tab (browser default) – no download attribute -->
           <a href="Sankarshan_CV_Quant.pdf" target="_blank" class="btn btn-primary cv-view-btn" style="background:#1e4a76; margin-top: 0.5rem;">
             <i class="fas fa-file-pdf"></i> View CV (PDF)
           </a>
