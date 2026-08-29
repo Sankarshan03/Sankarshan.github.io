@@ -1,703 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Sankarshan Kulkarni | Quantitative Researcher | Options, Volatility, Systematic Strategies</title>
-  <meta name="description" content="Quantitative researcher specializing in options pricing, volatility surface modelling (SVI), statistical arbitrage (Kalman filter), high-performance backtesting (Numba), and risk analytics for multi-billion dollar portfolios.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafd;
-      color: #0a0c10;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    /* Hero */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      padding: 3rem 0 1.5rem 0;
-    }
-    .hero-content {
-      flex: 2;
-    }
-    .hero-avatar {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .avatar-circle {
-      width: 170px;
-      height: 170px;
-      background: linear-gradient(135deg, #0f2b4d, #1e4a76);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-    .avatar-circle:hover {
-      transform: scale(1.02);
-    }
-    .avatar-initials {
-      font-size: 4rem;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 2px;
-    }
-    .badge-location {
-      display: inline-block;
-      background: #e9f0ff;
-      color: #1e4a76;
-      padding: 0.25rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-top: 0.5rem;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #0f172a, #1e4a76);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 0.25rem;
-    }
-    .tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #2c3e66;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .hero-tagline {
-      font-size: 1rem;
-      color: #334155;
-      margin: 0.75rem 0 1rem;
-      border-left: 4px solid #2c7da0;
-      padding-left: 1rem;
-      background: #f1f5f9;
-      border-radius: 0 12px 12px 0;
-      padding: 0.6rem 1rem;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0.6rem 1.3rem;
-      border-radius: 40px;
-      font-weight: 500;
-      transition: all 0.25s;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .btn-primary {
-      background: #0f172a;
-      color: white;
-      border: 1px solid #0f172a;
-    }
-    .btn-primary:hover {
-      background: #1e2a44;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .btn-outline {
-      background: white;
-      border: 1px solid #cbd5e1;
-      color: #1f2937;
-    }
-    .btn-outline:hover {
-      border-color: #2c7da0;
-      color: #2c7da0;
-      transform: translateY(-2px);
-    }
-    .social-links {
-      display: flex;
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-    .social-icon {
-      font-size: 1.5rem;
-      color: #4b5563;
-      transition: 0.2s;
-      text-decoration: none;
-    }
-    .social-icon:hover {
-      color: #1e4a76;
-      transform: translateY(-2px);
-    }
-    /* Tabs */
-    .tabs-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      border-bottom: 2px solid #e2e8f0;
-      margin: 1.5rem 0 2rem 0;
-      padding-bottom: 0.75rem;
-    }
-    .tab-btn {
-      background: transparent;
-      border: none;
-      padding: 0.6rem 1.6rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #4b5563;
-      cursor: pointer;
-      border-radius: 40px;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-    .tab-btn:hover {
-      background: #eef2ff;
-      color: #1e4a76;
-    }
-    .tab-btn.active {
-      background: #1e4a76;
-      color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    .tab-content.active-tab {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    /* Cards */
-    .exp-card, .project-card {
-      background: white;
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-      border: 1px solid #edf2f7;
-      margin-bottom: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .exp-card:hover {
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
-      border-color: #cbdff2;
-      transform: translateY(-3px);
-    }
-    .project-card {
-      transition: all 0.3s ease;
-      cursor: default;
-      position: relative;
-      z-index: 1;
-    }
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 1.5rem;
-      padding: 2px;
-      background: linear-gradient(135deg, rgba(44,125,160,0.2), rgba(30,74,118,0.2));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-    .project-card:hover::after {
-      opacity: 1;
-    }
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
-      border-color: transparent;
-      background: #ffffff;
-    }
-    .project-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .project-card h3 i {
-      color: #1e4a76;
-      font-size: 1.3rem;
-    }
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0 0.75rem;
-    }
-    .tech-tag {
-      background: #eef2ff;
-      padding: 0.2rem 0.7rem;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #1e4a76;
-      transition: all 0.2s;
-    }
-    .project-card:hover .tech-tag {
-      background: #e0e9ff;
-    }
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #f1f5f9;
-      padding: 0.3rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #0f172a;
-      text-decoration: none;
-      transition: 0.2s;
-      margin-top: 0.5rem;
-    }
-    .project-link i {
-      font-size: 0.85rem;
-    }
-    .project-link:hover {
-      background: #1e4a76;
-      color: white;
-      transform: translateX(3px);
-    }
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
-    }
-    .exp-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    .exp-company {
-      color: #1e4a76;
-      font-weight: 600;
-    }
-    .exp-date {
-      color: #6b7280;
-      font-size: 0.85rem;
-    }
-    .exp-location {
-      font-size: 0.85rem;
-      color: #4b5563;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 0.2rem;
-      margin-bottom: 0.75rem;
-    }
-    ul.list-bullet {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    ul.list-bullet li {
-      margin-bottom: 0.5rem;
-      color: #2d3a4b;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 1rem 0;
-    }
-    .skill-badge {
-      background: #f3f4f6;
-      padding: 0.4rem 1.1rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #1f2937;
-      transition: 0.2s;
-    }
-    .skill-badge:hover {
-      background: #e0e7ff;
-      transform: translateY(-2px);
-    }
-    .achievement-item {
-      background: #fefce8;
-      border-left: 5px solid #eab308;
-      padding: 1rem 1.2rem;
-      border-radius: 1rem;
-      margin-bottom: 1rem;
-      transition: 0.2s;
-    }
-    .achievement-item:hover {
-      transform: translateX(4px);
-      background: #fff7e0;
-    }
-    .grid-2cols {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 1.8rem;
-    }
-    .edu-card {
-      background: white;
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      transition: all 0.2s;
-      border: 2px solid #e2e8f0;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-    }
-    .edu-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.1);
-      transform: translateY(-2px);
-    }
-    .impact-strip {
-      background: linear-gradient(115deg, #fef9e6, #fff6e8);
-      border-radius: 2rem;
-      padding: 1.2rem;
-      margin-top: 1.5rem;
-      text-align: center;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      border: 1px solid #f1e5c6;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #f1f5f9;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #4b5563;
-    }
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.2rem;
-      }
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      .hero-tagline {
-        text-align: left;
-      }
-      .btn-group, .social-links {
-        justify-content: center;
-      }
-      .tab-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-      }
-      .grid-2cols {
-        grid-template-columns: 1fr;
-      }
-    }
-    @media print {
-      .tabs-nav, .btn-group, .social-links, footer, .avatar-circle {
-        display: none;
-      }
-      .tab-content {
-        display: block !important;
-      }
-      .container {
-        max-width: 100%;
-      }
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-    h2:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: #1e4a76;
-      border-radius: 4px;
-    }
-    .section {
-      padding-bottom: 1rem;
-    }
-    .cv-view-btn {
-      margin-top: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sankarshan Kulkarni — Derivatives Pricing &amp; Volatility Modelling</title>
+<meta name="description" content="Quantitative developer working on SABR, Black-76 and Bachelier calibration for SOFR and FX volatility surfaces, and the Bloomberg-to-kdb+ market data infrastructure behind them.">
+<meta property="og:title" content="Sankarshan Kulkarni — Derivatives Pricing & Volatility Modelling">
+<meta property="og:description" content="Front-office derivatives pricing, volatility calibration and market data infrastructure. Python, kdb+, SQL.">
+<meta property="og:type" content="profile">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#14181c;
+  --ink-2:#39424c;
+  --muted:#6b7580;
+  --paper:#eef0ed;
+  --surface:#ffffff;
+  --rule:#d5d9d3;
+  --rule-soft:#e4e7e2;
+  --cobalt:#1b3fe0;
+  --cobalt-soft:#e7ebfd;
+  --teal:#0e6f6d;
+  --amber:#9a6b00;
+
+  --ff-display:"Newsreader",Georgia,serif;
+  --ff-body:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --ff-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --wrap:1120px;
+  --gap:clamp(1rem,3vw,2rem);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--ff-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+::selection{background:var(--cobalt);color:#fff}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gap)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  position:sticky;top:0;z-index:50;
+  background:rgba(238,240,237,.9);
+  backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.masthead-in{
+  max-width:var(--wrap);margin:0 auto;padding:.7rem var(--gap);
+  display:flex;align-items:center;gap:1rem;justify-content:space-between;
+}
+.mark{
+  font-family:var(--ff-mono);font-size:.78rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
+}
+.mark span{color:var(--cobalt)}
+.nav{display:flex;gap:.15rem;align-items:center;flex-wrap:wrap}
+.nav a{
+  font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;color:var(--muted);
+  padding:.4rem .6rem;border-radius:3px;transition:color .18s,background .18s;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);background:var(--rule-soft)}
+.nav a.here{color:var(--ink);background:var(--rule-soft)}
+.nav .cv{color:var(--cobalt);border:1px solid var(--cobalt);margin-left:.35rem}
+.nav .cv:hover{background:var(--cobalt);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(1.5rem,3vw,2.5rem)}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);
+  gap:clamp(1.5rem,4vw,3.5rem);align-items:start;
+}
+.eyebrow{
+  font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--cobalt)}
+h1{
+  font-family:var(--ff-display);
+  font-size:clamp(2.7rem,6.6vw,4.6rem);
+  font-weight:500;line-height:1.02;letter-spacing:-.022em;margin-bottom:.7rem;
+}
+.role{
+  font-family:var(--ff-display);font-style:italic;font-weight:400;
+  font-size:clamp(1.1rem,2.2vw,1.45rem);color:var(--ink-2);
+  line-height:1.35;margin-bottom:1.2rem;max-width:32ch;
+}
+.summary{color:var(--ink-2);max-width:56ch;font-size:1rem}
+.summary strong{font-weight:600;color:var(--ink)}
+.contact{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.contact a{
+  font-family:var(--ff-mono);font-size:.74rem;text-decoration:none;
+  padding:.42rem .8rem;border:1px solid var(--rule);border-radius:2px;
+  background:var(--surface);color:var(--ink-2);
+  transition:border-color .18s,color .18s,transform .18s;
+}
+.contact a:hover{border-color:var(--cobalt);color:var(--cobalt);transform:translateY(-1px)}
+.contact a.copied{border-color:var(--teal);color:var(--teal)}
+
+/* quiet side card */
+.now{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1.1rem 1.2rem}
+.now h2{
+  font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:.85rem;
+}
+.now dl{display:grid;gap:.7rem}
+.now dt{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.now dd{font-size:.9rem;color:var(--ink);margin-top:.1rem}
+.now dd em{font-style:normal;color:var(--cobalt)}
+
+/* ---------- facts ---------- */
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  margin-top:clamp(2rem,4vw,3rem);
+}
+.fact{padding:1.1rem var(--gap) 1.1rem 0;border-right:1px solid var(--rule-soft)}
+.fact:last-child{border-right:0}
+.fact b{font-family:var(--ff-mono);font-size:1.3rem;font-weight:500;display:block;letter-spacing:-.02em}
+.fact span{font-size:.82rem;color:var(--muted);display:block;margin-top:.15rem}
+
+/* ---------- sections ---------- */
+section{padding:clamp(3rem,6vw,4.5rem) 0}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem;border-bottom:1px solid var(--rule);padding-bottom:.7rem}
+.sec-head h2{font-family:var(--ff-display);font-weight:500;font-size:clamp(1.6rem,3.4vw,2.15rem);letter-spacing:-.015em}
+.sec-head span{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+
+/* experience */
+.job{
+  display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);
+  gap:clamp(1rem,3vw,2.5rem);padding:1.8rem 0;border-bottom:1px solid var(--rule-soft);
+}
+.job:last-of-type{border-bottom:0}
+.job h3{font-size:1.02rem;font-weight:600;line-height:1.3}
+.job .org{color:var(--cobalt);font-weight:500;font-size:.95rem;margin-top:.1rem}
+.job .meta{font-family:var(--ff-mono);font-size:.71rem;color:var(--muted);margin-top:.5rem;line-height:1.7}
+.job ul{list-style:none}
+.job li{position:relative;padding-left:1.1rem;margin-bottom:.75rem;color:var(--ink-2);font-size:.95rem}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--cobalt)}
+.job li strong{font-weight:600;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.tag{
+  font-family:var(--ff-mono);font-size:.67rem;letter-spacing:.03em;
+  padding:.16rem .5rem;background:var(--cobalt-soft);color:#1a35a8;border-radius:2px;
+}
+
+/* projects */
+.filters{display:flex;gap:.4rem;flex-wrap:wrap;margin:-.8rem 0 1.4rem}
+.filter{
+  font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.04em;
+  padding:.3rem .7rem;border:1px solid var(--rule);background:var(--surface);
+  color:var(--muted);border-radius:2px;cursor:pointer;
+  transition:border-color .18s,color .18s,background .18s;
+}
+.filter:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(305px,1fr));gap:1rem}
+.proj{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:1.15rem 1.2rem 1rem;display:flex;flex-direction:column;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.proj:hover{border-color:var(--cobalt);transform:translateY(-2px);box-shadow:0 12px 28px -20px rgba(20,24,28,.5)}
+.proj.hide{display:none}
+.proj h3{font-size:1rem;font-weight:600;margin-bottom:.45rem;letter-spacing:-.005em}
+.proj p{font-size:.9rem;color:var(--ink-2);margin-bottom:.5rem}
+.proj .nums{font-family:var(--ff-mono);font-size:.73rem;border-left:2px solid var(--cobalt);padding-left:.6rem;margin:.15rem 0 .7rem}
+.proj .tags{margin-top:auto;padding-top:.55rem}
+.repo{font-family:var(--ff-mono);font-size:.7rem;text-decoration:none;color:var(--muted);margin-top:.75rem;display:inline-block;transition:color .18s}
+.repo:hover{color:var(--cobalt)}
+.repo::after{content:" ↗"}
+
+/* skills */
+.two-col{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem)}
+.skill-row{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule-soft)}
+.skill-row:last-child{border-bottom:0}
+.skill-row dt{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:.2rem}
+.skill-row dd{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:var(--ff-mono);font-size:.72rem;padding:.2rem .55rem;background:var(--surface);border:1px solid var(--rule);border-radius:2px}
+.pill.key{border-color:var(--cobalt);color:var(--cobalt)}
+.award{border-left:2px solid var(--amber);padding:.15rem 0 .15rem .9rem;margin-bottom:1.1rem}
+.award b{font-family:var(--ff-mono);font-size:.82rem;display:block;margin-bottom:.15rem}
+.award span{font-size:.88rem;color:var(--ink-2)}
+.edu{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1.1rem 1.2rem;margin-top:1.6rem}
+.edu b{font-size:.98rem}
+.edu p{font-size:.86rem;color:var(--muted);margin-top:.2rem}
+
+footer{border-top:1px solid var(--rule);padding:1.6rem 0 2.4rem;margin-top:1rem}
+.foot-in{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--ff-mono);font-size:.7rem;color:var(--muted)}
+.foot-in a{color:var(--muted);text-decoration:none}
+.foot-in a:hover{color:var(--cobalt)}
+
+.rv{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:.9rem}
+}
+@media (max-width:600px){
+  .nav a{padding:.35rem .45rem;font-size:.68rem}
+  .skill-row{grid-template-columns:1fr;gap:.4rem}
+  .fact{border-right:0;border-bottom:1px solid var(--rule-soft)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  .masthead,.repo,footer,.contact,.filters,.now{display:none}
+  body{background:#fff;font-size:11pt}
+  section{padding:.6rem 0}
+  .proj,.job{break-inside:avoid}
+}
+</style>
 </head>
 <body>
-<div class="container">
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-content">
-      <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</div>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="mark" href="#top">Sankarshan Kulkarni<span> ·</span> Quant</a>
+    <nav class="nav">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">Contact</a>
+      <a class="cv" href="Sankarshan_CV_Quant.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= HERO ======================= -->
+<div class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Pune, India — PwC Markets Engineering</div>
       <h1>Sankarshan Kulkarni</h1>
-      <div class="tagline">Quantitative Researcher | Volatility & Systematic Strategies</div>
-      <div class="hero-tagline">
-        <i class="fas fa-chart-line" style="margin-right: 6px;"></i> Options pricing · SVI surfaces · High‑performance backtesting · Risk analytics for $10B+ AUM
-      </div>
-      <div class="social-links">
-        <a href="mailto:ksankarshan1208@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/Sankarshan03" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-    <div class="hero-avatar">
-      <div class="avatar-circle"><span class="avatar-initials">SK</span></div>
-    </div>
-  </div>
-
-  <!-- Tabs Navigation -->
-  <div class="tabs-nav">
-    <button class="tab-btn active" data-tab="about">About</button>
-    <button class="tab-btn" data-tab="experience">Experience</button>
-    <button class="tab-btn" data-tab="projects">Projects</button>
-    <button class="tab-btn" data-tab="skills">Skills & Achievements</button>
-    <button class="tab-btn" data-tab="education">Education & CV</button>
-  </div>
-
-  <!-- Tab: About -->
-  <div id="about" class="tab-content active-tab">
-    <div class="section">
-      <h2>Professional Summary</h2>
-      <p style="font-size: 1.05rem; max-width: 850px; margin-top: 0.5rem;">
-        Quantitative researcher with deep expertise in options pricing, volatility surface modelling, systematic backtesting, and risk analytics. 
-        Proficient in Python, SQL, and statistical methods. Proven track record of building high-performance algorithmic trading systems 
-        and risk frameworks for multi‑billion dollar portfolios.
+      <p class="role">Derivatives pricing, volatility calibration, and the market data plumbing underneath it.</p>
+      <p class="summary">
+        Quantitative developer with <strong>2+ years</strong> across front-office derivatives pricing and risk analytics.
+        Work spans <strong>SABR</strong>, <strong>Black-76</strong> and <strong>Bachelier</strong> calibration for SOFR and FX
+        volatility surfaces, and the <strong>Bloomberg-to-kdb+</strong> infrastructure that feeds them. Builds in Python, SQL,
+        Spark, MSSQL and MongoDB, with production experience on terabyte-scale risk and liquidity reporting pipelines.
       </p>
-      <div class="impact-strip">
-        <div><i class="fas fa-chart-simple"></i> <strong>$10B+</strong> AUM covered</div>
-        <div><i class="fas fa-database"></i> <strong>100K+</strong> instruments modeled</div>
-        <div><i class="fas fa-clock"></i> <strong>1000+</strong> manual hours saved/year</div>
-        <div><i class="fas fa-chart-line"></i> <strong>1.20 Sharpe</strong> Kalman pairs</div>
-        <div><i class="fas fa-chart-area"></i> <strong>SVI RMSE</strong> 0.00256</div>
+      <div class="contact">
+        <a href="mailto:ksankarshan1208@gmail.com">Email</a>
+        <a href="https://github.com/Sankarshan03" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="Sankarshan_CV_Quant.pdf" target="_blank" rel="noopener">CV (PDF)</a>
       </div>
     </div>
+
+    <aside class="now">
+      <h2>Currently</h2>
+      <dl>
+        <div>
+          <dt>Desk</dt>
+          <dd>Markets Engineering — <em>FX and interest rate derivatives</em></dd>
+        </div>
+        <div>
+          <dt>Models</dt>
+          <dd>SABR, Black-76, Bachelier — N / LN / SLN volatilities across ATM, smile and skew</dd>
+        </div>
+        <div>
+          <dt>Products</dt>
+          <dd>SOFR swaptions, caps and floors, FX options</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd>Python, kdb+, MSSQL, MongoDB, Bloomberg feeds</dd>
+        </div>
+        <div>
+          <dt>Open to</dt>
+          <dd>Quantitative research and quant developer roles</dd>
+        </div>
+      </dl>
+    </aside>
   </div>
 
-  <!-- Tab: Experience – Updated with detailed Citibank summary (ATS‑friendly) -->
-  <div id="experience" class="tab-content">
-    <div class="section">
-      <h2>Work Experience</h2>
-      <!-- PwC Experience (unchanged) -->
-      <div class="exp-card">
-        <div class="exp-header">
-          <div><span class="exp-title">Associate (Y3) - Quantitative Risk Analytics</span><br><span class="exp-company">PricewaterhouseCoopers Services LLP, India</span></div>
-          <div class="exp-date"><i class="far fa-calendar-alt"></i> Mar 2026 – Present</div>
-        </div>
-        <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</div>
-        <ul class="list-bullet">
-         <li>Build pricing and volatility analytics for FX and interest rate derivatives on a front-office Markets Engineering desk — SABR, Black-76, and Bachelier calibration producing N/LN/SLN vols across ATM, smile, and skew points for SOFR swaptions, caps/floors, and FX options.</li>
-
-          <li>Own the server-side market data flow from Bloomberg into kdb+: feed handlers, tick capture, curve and volatility surface persistence, and the real-time query layer traders use intraday for live marks and risk.</li>
-          
-          <li>Work directly with quants through the calibration workflow — parameter fitting, arbitrage-free and stability checks, and production release onto the pricing library used by the desk.</li>
-          
-          <li>Developed Python and SQL models for portfolio risk forecasting and exposure analytics across 100K+ instruments spanning equities, fixed income, MBS, and alternatives.</li>
-        </ul>
-        <div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Risk Modeling</span><span class="tech-tag">Portfolio Analytics</span><span class="tech-tag">Factor Attribution</span></div>
-      </div>
-      <!-- Citibank Experience – consolidated, ATS‑friendly summary -->
-      <div class="exp-card">
-        <div class="exp-header">
-          <div><span class="exp-title">Technology Analyst (C09 → C10)</span><br><span class="exp-company">Citibank (CSIPL)</span></div>
-          <div class="exp-date"><i class="far fa-calendar-alt"></i> Jul 2024 – Feb 2026</div>
-        </div>
-        <div class="exp-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra (On‑site)</div>
-        <ul class="list-bullet">
-          <li><strong>GenAI & Data Intelligence:</strong> Designed RAG‑based business glossary automation and LLM‑powered data lineage visualization for Spark pipelines, improving metadata governance and reducing manual documentation. Built configuration‑driven orchestration framework supporting Spark, Impala, and shell workloads.</li>
-          <li><strong>Enterprise AI Adoption:</strong> Led evaluation and onboarding of Devin AI, identifying high‑value use cases across software development and analytics. Drove AI enablement initiatives, showcasing enterprise‑scale innovation at Citi's Technology Theme of the Month forum.</li>
-          <li><strong>Audit & Risk Platforms:</strong> Developed enterprise web applications (AngularJS, data visualization) for Internal Audit, enabling behavioral analytics and risk assessment. Owned front‑end architecture for three platforms, achieving 90%+ test coverage and $120K annual cost savings through GenAI‑powered audit automation.</li>
-          <li><strong>Software Quality & Governance:</strong> Maintained 90%+ automated test coverage, security remediation, and performance optimizations. Managed platform stability, server capacity, and operational monitoring to ensure reliability and scalability.</li>
-        </ul>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span><span class="tech-tag">PySpark</span><span class="tech-tag">SQL</span><span class="tech-tag">GenAI/RAG</span>
-          <span class="tech-tag">LLM</span><span class="tech-tag">AngularJS</span><span class="tech-tag">Data Lineage</span>
-          <span class="tech-tag">Orchestration</span><span class="tech-tag">Risk Analytics</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tab: Projects (unchanged, with correct metrics and repo URLs) -->
-  <div id="projects" class="tab-content">
-    <div class="section">
-      <h2>Key Quantitative Research Projects</h2>
-      <div class="grid-2cols">
-        <!-- BankNifty Dispersion Trade Monitor -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> BankNifty Dispersion Trade Monitor</h3>
-          <p><strong>Real‑time dispersion trading infrastructure:</strong> Long ATM straddle on BankNifty vs short constituent straddles. Built with Flask, Zerodha KiteTicker WebSocket, multi‑threaded API calls. Achieved <strong>75% API call reduction</strong> via smart caching with automatic fallback. Normalised to ₹6 crore reference portfolio.</p>
-          <div class="project-tech"><span class="tech-tag">Flask</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Options Greeks</span><span class="tech-tag">Real‑time PnL</span><span class="tech-tag">Volatility Arbitrage</span></div>
-          <a href="https://github.com/Sankarshan03/Bank-Nifty-Dispersion" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-        <!-- BankNifty Short Strangle Backtesting -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> Short Strangle Backtesting Engine</h3>
-          <p><strong>High‑performance 1‑minute intraday backtester</strong> processing <strong>10M+ rows</strong> of options data. Entry at 09:20 (strikes near ₹50), exit at 15:20 or 50% stop loss. Achieved <strong>CAGR 8%</strong>, <strong>max drawdown 0.44%</strong>, runtime optimised to <strong>45 seconds</strong>. Computed Sharpe ratio, skewness (-1.36), kurtosis (0.37).</p>
-          <div class="project-tech"><span class="tech-tag">Backtesting</span><span class="tech-tag">Options Strategies</span><span class="tech-tag">Performance Analytics</span><span class="tech-tag">Risk Metrics</span></div>
-          <a href="https://github.com/Sankarshan03" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-        <!-- SVI Volatility Surface Modelling -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-area"></i> SVI Volatility Surface Modelling</h3>
-          <p><strong>Implied volatility surface calibration for SPXW options:</strong> Extracted OTM options (0/1/2 DTE) from 7.5M‑row dataset; derived forward price (r=4.5%), computed Black‑76 implied volatilities. Fitted 5‑parameter SVI model via least squares (<strong>RMSE 0.00256</strong>); validated no butterfly arbitrage via call price convexity.</p>
-          <div class="project-tech"><span class="tech-tag">SVI</span><span class="tech-tag">Volatility Surface</span><span class="tech-tag">Implied Volatility</span><span class="tech-tag">Black‑76</span><span class="tech-tag">Arbitrage‑free</span></div>
-          <a href="https://github.com/Sankarshan03/SVI-Modelling-1dte" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-        <!-- Kalman Filter Pair Trading -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> Kalman Filter Pair Trading</h3>
-          <p><strong>Statistical arbitrage via dynamic mean‑reversion:</strong> Kalman Filter state‑space modelling for rolling hedge ratio estimation on US equities. Achieved <strong>Sharpe 1.20, Calmar 2.0, max drawdown 20%</strong> after transaction costs and slippage. Robust backtesting framework.</p>
-          <div class="project-tech"><span class="tech-tag">Kalman Filter</span><span class="tech-tag">Pair Trading</span><span class="tech-tag">Statistical Arbitrage</span><span class="tech-tag">Time Series</span></div>
-          <a href="https://github.com/Sankarshan03/Kalman-Filter-Pair-trading-strategy" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-        <!-- Risk Parity & Minimum Volatility -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-pie"></i> Risk Parity & Minimum Volatility</h3>
-          <p><strong>Advanced portfolio optimization:</strong> Implemented risk parity via marginal risk contribution and minimum variance with product constraint (∏w = e⁻²) on six US stocks. Achieved <strong>daily variance 10× lower than market‑cap weighted benchmark</strong>; risk parity weights evenly distributed (0.12–0.20).</p>
-          <div class="project-tech"><span class="tech-tag">Risk Parity</span><span class="tech-tag">Portfolio Optimization</span><span class="tech-tag">SciPy</span><span class="tech-tag">Covariance Matrix</span></div>
-          <a href="https://github.com/Sankarshan03/Portfolio-Optimization-of-Stocks-using-Monte-Carlo-Simulation-and-Markowitz-model" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-        <!-- Intraday EMA-RSI Trading System -->
-        <div class="project-card">
-          <h3><i class="fas fa-rocket"></i> Intraday EMA-RSI Trading System</h3>
-          <p><strong>Numba JIT‑accelerated backtesting engine (5‑10× speedup).</strong> Multi‑timeframe EMA(3/10/50) + RSI(14) with pending entry logic and dynamic stock selection (turnover‑based). Interactive Streamlit dashboard with Sharpe, drawdown, and execution time monitoring.</p>
-          <div class="project-tech"><span class="tech-tag">Numba</span><span class="tech-tag">Backtesting</span><span class="tech-tag">Streamlit</span><span class="tech-tag">Technical Indicators</span><span class="tech-tag">Risk Management</span></div>
-          <a href="https://github.com/Sankarshan03/Intraday_Equity" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-        <!-- Black-Scholes PDE - Heat Equation -->
-        <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> Black‑Scholes PDE: Heat Equation FD</h3>
-          <p><strong>Numerical solution of the Black‑Scholes PDE</strong> via transformation to the heat equation. Explicit finite difference scheme on log‑moneyness domain. Validated against analytical formula (<strong>R² = 0.995</strong>); quantified convergence, stability, and boundary condition effects.</p>
-          <div class="project-tech"><span class="tech-tag">Derivatives Pricing</span><span class="tech-tag">Finite Difference</span><span class="tech-tag">PDE</span><span class="tech-tag">Numerical Analysis</span></div>
-          <a href="https://github.com/Sankarshan03/Black-Scholes-equation" target="_blank" class="project-link"><i class="fab fa-github"></i> Repository</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tab: Skills & Achievements (unchanged) -->
-  <div id="skills" class="tab-content">
-    <div class="section">
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-        <div style="flex: 2;">
-          <h2>Technical Skills</h2>
-          <div><strong>Languages & Tools:</strong> Python, SQL, C++, Matlab, Spark, Pandas, NumPy, SciPy, Statsmodels, Docker, Git, Linux, Streamlit, Numba, Flask, WebSockets, AngularJS</div>
-          <div class="skills-grid">
-            <span class="skill-badge">Factor Research</span><span class="skill-badge">Portfolio Construction</span><span class="skill-badge">Risk Modeling</span>
-            <span class="skill-badge">Statistical Arbitrage</span><span class="skill-badge">Time Series Analysis</span><span class="skill-badge">Monte Carlo Simulation</span>
-            <span class="skill-badge">Derivatives Pricing</span><span class="skill-badge">Black‑Scholes / Black‑76</span><span class="skill-badge">CAPM / Risk Parity</span>
-            <span class="skill-badge">SVI Volatility Modelling</span><span class="skill-badge">Backtesting</span><span class="skill-badge">Implied Volatility</span>
-            <span class="skill-badge">Finite Difference Methods</span><span class="skill-badge">Options Greeks</span><span class="skill-badge">Real‑time Systems</span>
-            <span class="skill-badge">GenAI / RAG</span><span class="skill-badge">LLM</span><span class="skill-badge">Data Lineage</span>
-          </div>
-        </div>
-        <div style="flex: 1.5;">
-          <h2>🏆 Achievements</h2>
-          <div class="achievement-item"><i class="fas fa-trophy"></i> <strong>Global Rank 87</strong> — NK Securities Quant Research Challenge (volatility surface & option mispricing).</div>
-          <div class="achievement-item"><i class="fas fa-robot"></i> <strong>Winner - Algorithmic Trading Hackathon</strong> among 2000+ participants for systematic quant strategies.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tab: Education & CV (PDF opens in browser) -->
-  <div id="education" class="tab-content">
-    <div class="section">
-      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-        <div class="edu-card" style="flex:1;">
-          <i class="fas fa-graduation-cap" style="font-size: 1.8rem; color: #1e4a76;"></i>
-          <h3 style="margin: 0.5rem 0 0.25rem;">Indian Institute of Technology Gandhinagar</h3>
-          <p><strong>B.Tech, Chemical Engineering</strong> | 2020 – 2024</p>
-          <p>Quantitative methods, computational finance, advanced statistics, optimization.</p>
-        </div>
-        <div class="edu-card" style="flex:1;" id="contact-cv">
-          <i class="fas fa-address-card"></i>
-          <h3 style="margin: 0.5rem 0 0.25rem;">Curriculum Vitae (CV)</h3>
-          <p>Complete professional profile, research projects, and technical achievements.</p>
-          <a href="Sankarshan_CV_Quant.pdf" target="_blank" class="btn btn-primary cv-view-btn" style="background:#1e4a76; margin-top: 0.5rem;">
-            <i class="fas fa-file-pdf"></i> View CV (PDF)
-          </a>
-          <div style="margin-top: 1.2rem;">
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ksankarshan1208@gmail.com</p>
-            <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Sankarshan03" target="_blank" style="color:#1e4a76;">github.com/Sankarshan03</a></p>
-            <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" style="color:#1e4a76;">linkedin.com/in/sankarshan-kulkarni</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="facts">
+    <div class="fact"><b>SOFR &amp; FX</b><span>Vol surfaces in production</span></div>
+    <div class="fact"><b>100K+</b><span>Instruments modelled</span></div>
+    <div class="fact"><b>10M+</b><span>Rows backtested, 1-min bars</span></div>
+    <div class="fact"><b>0.00256</b><span>SVI calibration RMSE</span></div>
   </div>
 </div>
 
+<!-- ======================= EXPERIENCE ======================= -->
+<section id="experience" class="wrap rv">
+  <div class="sec-head"><h2>Experience</h2><span>2024 — present</span></div>
+
+  <article class="job">
+    <div>
+      <h3>Associate (Y3) — Markets Engineering</h3>
+      <div class="org">PricewaterhouseCoopers Services LLP, India</div>
+      <div class="meta">Mar 2026 — Present<br>Pune, Maharashtra</div>
+    </div>
+    <div>
+      <ul>
+        <li>Implement and calibrate <strong>SABR</strong>, <strong>Black-76</strong> and <strong>Bachelier</strong> models to produce normal, lognormal and shifted-lognormal volatilities across ATM, smile and skew points for <strong>SOFR swaptions</strong>, caps/floors and <strong>FX options</strong>.</li>
+        <li>Handle negative-rate and low-strike regimes through shifted-lognormal and normal quoting conventions, including volatility conversion across N/LN/SLN spaces for consistent cross-desk marks.</li>
+        <li>Own the server-side market data flow from <strong>Bloomberg</strong> into <strong>kdb+</strong>: feed handlers, tick capture, curve and volatility surface persistence, and the real-time query layer traders use intraday for live marks and risk.</li>
+        <li>Work directly with quants through the calibration workflow — parameter fitting, arbitrage-free and stability checks, and production release onto the pricing library used by the desk.</li>
+        <li>Build and tune low-latency components of the in-house platform in <strong>Python</strong>, <strong>MSSQL</strong> and <strong>MongoDB</strong>, cutting surface computation and query times on the paths traders depend on during active hours.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">SABR</span><span class="tag">Black-76</span><span class="tag">Bachelier</span>
+        <span class="tag">SOFR</span><span class="tag">FX Options</span><span class="tag">kdb+</span>
+        <span class="tag">Bloomberg</span><span class="tag">Python</span><span class="tag">MSSQL</span><span class="tag">MongoDB</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="job">
+    <div>
+      <h3>Technology Analyst (C10)</h3>
+      <div class="org">Citibank (CSIPL)</div>
+      <div class="meta">Jul 2024 — Feb 2026<br>Pune, Maharashtra</div>
+    </div>
+    <div>
+      <ul>
+        <li>Built <strong>Python</strong>, <strong>Spark</strong> and <strong>SQL</strong> pipelines for liquidity risk reporting (<strong>AQUA</strong>) on terabyte-scale datasets feeding regulatory and internal risk metrics.</li>
+        <li>Developed feature engineering and data quality checks across <strong>100+</strong> datasets used for quantitative reporting and downstream model inputs.</li>
+        <li>Designed a configuration-driven execution framework for Spark and Impala workloads with logging, alerting and monitoring; adopted across FRMT risk reporting teams.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">SQL</span>
+        <span class="tag">Impala</span><span class="tag">Liquidity Risk</span><span class="tag">Data Quality</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ======================= PROJECTS ======================= -->
+<section id="projects" class="wrap rv">
+  <div class="sec-head"><h2>Projects</h2><span>Code on GitHub</span></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter projects by topic">
+    <button class="filter" type="button" data-f="all" aria-pressed="true">All <span id="cAll"></span></button>
+    <button class="filter" type="button" data-f="volatility" aria-pressed="false">Volatility</button>
+    <button class="filter" type="button" data-f="pricing" aria-pressed="false">Pricing</button>
+    <button class="filter" type="button" data-f="backtesting" aria-pressed="false">Backtesting</button>
+    <button class="filter" type="button" data-f="portfolio" aria-pressed="false">Portfolio</button>
+  </div>
+
+  <div class="proj-grid">
+
+    <article class="proj" data-cat="volatility pricing">
+      <h3>SVI Volatility Surface — SPXW</h3>
+      <p>Extracted OTM SPXW options (0/1/2 DTE) from a 7.5M-row dataset, derived the forward using the 10-year Treasury yield (r = 4.5%), and computed Black-76 implied volatilities. Fitted a 5-parameter raw SVI by least squares.</p>
+      <div class="nums">RMSE 0.00256 · butterfly arbitrage ruled out via call-price convexity</div>
+      <div class="tags"><span class="tag">SVI</span><span class="tag">Implied Vol</span><span class="tag">Black-76</span><span class="tag">Arbitrage-free</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/SVI-Modelling-1dte" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="volatility">
+      <h3>BankNifty Dispersion Monitor</h3>
+      <p>Real-time dispersion book: long the index straddle against short constituent straddles, with net premium tracked live over a Zerodha KiteTicker WebSocket and multi-threaded API calls. Normalised to a ₹6 crore reference portfolio.</p>
+      <div class="nums">75% fewer API calls via caching · WebSocket → polling → REST fallback chain</div>
+      <div class="tags"><span class="tag">Dispersion</span><span class="tag">Options Greeks</span><span class="tag">WebSockets</span><span class="tag">Flask</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Bank-Nifty-Dispersion" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="backtesting volatility">
+      <h3>Short Strangle Backtester</h3>
+      <p>Vectorised 1-minute intraday engine over 10M+ rows of BankNifty options data. Entry at 09:20 near the ₹50 strike, exit at 15:20 or a 50% stop loss, across a year of tick data.</p>
+      <div class="nums">Sharpe 1.30 · CAGR 8% · max DD 0.44% · skew −1.36 · kurtosis 0.37 · &lt;45s runtime</div>
+      <div class="tags"><span class="tag">Backtesting</span><span class="tag">Options Strategies</span><span class="tag">Risk Metrics</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Strandle_BankNifty" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="backtesting">
+      <h3>Kalman Filter Pair Trading</h3>
+      <p>Statistical arbitrage on US equities using a state-space model to re-estimate the hedge ratio each step, rather than fixing it from a rolling regression. Results are net of transaction costs and slippage.</p>
+      <div class="nums">Sharpe 1.20 · Calmar 2.0 · max drawdown 20%</div>
+      <div class="tags"><span class="tag">Kalman Filter</span><span class="tag">Stat Arb</span><span class="tag">Mean Reversion</span><span class="tag">Time Series</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Kalman-Filter-Pair-trading-strategy" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="pricing">
+      <h3>Black-Scholes PDE — Finite Difference</h3>
+      <p>Transformed the Black-Scholes PDE into the heat equation and solved it with an explicit finite difference scheme on a discretised log-moneyness domain, then checked it against the closed-form price.</p>
+      <div class="nums">R² = 0.995 vs analytical · convergence and CFL stability quantified</div>
+      <div class="tags"><span class="tag">PDE</span><span class="tag">Finite Difference</span><span class="tag">Numerical Methods</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Black-Scholes-equation" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="portfolio">
+      <h3>Risk Parity &amp; Minimum Variance</h3>
+      <p>Two allocation methods on six US equities: risk parity via marginal risk contribution, and minimum variance under a product constraint (∏w = e⁻²), using one month of historical returns.</p>
+      <div class="nums">Daily variance 10× below the cap-weighted benchmark · weights 0.12–0.20</div>
+      <div class="tags"><span class="tag">Risk Parity</span><span class="tag">Optimisation</span><span class="tag">Covariance</span><span class="tag">SciPy</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Portfolio-Optimization-of-Stocks-using-Monte-Carlo-Simulation-and-Markowitz-model" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+    <article class="proj" data-cat="backtesting">
+      <h3>Intraday EMA-RSI Engine</h3>
+      <p>Numba-JIT backtesting engine with multi-timeframe EMA(3/10/50) trend filters, an RSI(14) momentum gate, pending-entry logic and turnover-based stock selection. Thresholds tuned by grid search.</p>
+      <div class="nums">5–10× speedup over the pure-Python loop · Streamlit dashboard for Sharpe and drawdown</div>
+      <div class="tags"><span class="tag">Numba</span><span class="tag">Backtesting</span><span class="tag">Streamlit</span></div>
+      <a class="repo" href="https://github.com/Sankarshan03/Intraday_Equity" target="_blank" rel="noopener">Repository</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ======================= SKILLS ======================= -->
+<section id="skills" class="wrap rv">
+  <div class="sec-head"><h2>Skills &amp; recognition</h2><span>Tooling · domains · awards</span></div>
+  <div class="two-col">
+    <dl>
+      <div class="skill-row">
+        <dt>Languages</dt>
+        <dd>
+          <span class="pill key">Python</span><span class="pill key">SQL</span><span class="pill key">q / kdb+</span>
+          <span class="pill">C++</span><span class="pill">MATLAB</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Data</dt>
+        <dd>
+          <span class="pill key">MSSQL</span><span class="pill key">MongoDB</span><span class="pill">Spark</span>
+          <span class="pill">Impala</span><span class="pill">Bloomberg</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Scientific</dt>
+        <dd>
+          <span class="pill">NumPy</span><span class="pill">pandas</span><span class="pill">SciPy</span>
+          <span class="pill">statsmodels</span><span class="pill">Numba</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Pricing</dt>
+        <dd>
+          <span class="pill key">SABR</span><span class="pill key">Black-76</span><span class="pill key">Bachelier</span>
+          <span class="pill key">SVI</span><span class="pill">Black-Scholes</span><span class="pill">Finite difference</span>
+          <span class="pill">Implied volatility</span><span class="pill">Options Greeks</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Quant</dt>
+        <dd>
+          <span class="pill">Volatility surfaces</span><span class="pill">Statistical arbitrage</span>
+          <span class="pill">Time series</span><span class="pill">Monte Carlo</span>
+          <span class="pill">Portfolio construction</span><span class="pill">Risk parity</span><span class="pill">Backtesting</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Engineering</dt>
+        <dd><span class="pill">Git</span><span class="pill">Docker</span><span class="pill">Linux</span><span class="pill">Flask</span><span class="pill">Streamlit</span></dd>
+      </div>
+    </dl>
+
+    <div>
+      <div class="award">
+        <b>Global rank 87 / 4000+</b>
+        <span>NK Securities Quant Research Challenge — volatility surface construction and option mispricing.</span>
+      </div>
+      <div class="award">
+        <b>Winner, Algorithmic Trading Hackathon</b>
+        <span>Systematic strategy design and statistical backtesting, among 2000+ participants.</span>
+      </div>
+
+      <div class="edu" id="about">
+        <b>B.Tech, Chemical Engineering</b>
+        <p>Indian Institute of Technology Gandhinagar · 2020 – 2024</p>
+        <p style="margin-top:.7rem;color:var(--ink-2)">Open to quantitative research and quant developer roles. Reach me at <a href="mailto:ksankarshan1208@gmail.com" style="color:var(--cobalt)">ksankarshan1208@gmail.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <footer>
-  <p>© 2026 Sankarshan Kulkarni — Quantitative Research Portfolio | Built with <i class="fas fa-heart" style="color: #1e4a76;"></i> for systematic alpha</p>
-  <p style="margin-top: 0.5rem;">📍 Bengaluru, Karnataka | PwC India | Let's connect</p>
+  <div class="wrap foot-in">
+    <span>© 2026 Sankarshan Kulkarni · Pune, India</span>
+    <span>
+      <a href="mailto:ksankarshan1208@gmail.com">Email</a> ·
+      <a href="https://github.com/Sankarshan03" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/sankarshan-kulkarni-6480a9200/" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
 </footer>
 
 <script>
-  // Tab switching
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  function activateTab(tabId) {
-    tabContents.forEach(c => c.classList.remove('active-tab'));
-    const active = document.getElementById(tabId);
-    if (active) active.classList.add('active-tab');
-    tabBtns.forEach(btn => {
-      btn.classList.remove('active');
-      if (btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
-    });
-  }
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-      activateTab(tabId);
-      history.pushState(null, '', `#${tabId}`);
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* project filters */
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".proj"));
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+  var cAll = document.getElementById("cAll");
+  if (cAll) cAll.textContent = "(" + cards.length + ")";
+
+  filterBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var f = btn.dataset.f;
+      filterBtns.forEach(function(b){ b.setAttribute("aria-pressed", String(b === btn)); });
+      cards.forEach(function(c){
+        var show = (f === "all") || (c.dataset.cat || "").split(" ").indexOf(f) > -1;
+        c.classList.toggle("hide", !show);
+      });
     });
   });
-  function handleHash() {
-    const hash = window.location.hash.substring(1);
-    if (['about','experience','projects','skills','education'].includes(hash)) activateTab(hash);
-    else activateTab('about');
+
+  /* scroll spy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var targets = links.map(function(l){ return document.querySelector(l.getAttribute("href")); });
+  if ("IntersectionObserver" in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = targets.indexOf(e.target);
+        links.forEach(function(l,j){ l.classList.toggle("here", j === i); });
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    targets.forEach(function(t){ if (t) spy.observe(t); });
   }
-  window.addEventListener('hashchange', handleHash);
-  handleHash();
-  // Print CV button (hero)
-  const printHeroBtn = document.getElementById('printCvBtn');
-  function printPage() { window.print(); }
-  if (printHeroBtn) printHeroBtn.addEventListener('click', printPage);
+
+  /* copy email */
+  var mail = document.querySelector('.contact a[href^="mailto:"]');
+  if (mail && navigator.clipboard){
+    mail.addEventListener("click", function(e){
+      e.preventDefault();
+      navigator.clipboard.writeText("ksankarshan1208@gmail.com").then(function(){
+        var old = mail.textContent;
+        mail.textContent = "Email copied";
+        mail.classList.add("copied");
+        setTimeout(function(){ mail.textContent = old; mail.classList.remove("copied"); }, 1600);
+      }).catch(function(){ window.location.href = "mailto:ksankarshan1208@gmail.com"; });
+    });
+  }
+
+  /* reveal on scroll */
+  var items = document.querySelectorAll(".rv");
+  if (reduce || !("IntersectionObserver" in window)){
+    Array.prototype.forEach.call(items, function(n){ n.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.05});
+    Array.prototype.forEach.call(items, function(n){ io.observe(n); });
+  }
+})();
 </script>
 </body>
 </html>
